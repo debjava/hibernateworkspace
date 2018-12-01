@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE hibernate-mapping PUBLIC 
+ "-//Hibernate/Hibernate Mapping DTD//EN"
+ "http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+<hibernate-mapping>
+	<class name="com.ddlab.rnd.orm.BankAccount" table="BankAccount">
+		<id name="actId">
+			<generator class="identity" />
+		</id>
+		<property name="currency" />
+		<property name="accountNo" />
+		
+		<many-to-one name="bankCustomer" class="com.ddlab.rnd.orm.BankCustomer" fetch="select">
+            <column name="custId" not-null="true">
+        </column></many-to-one>
+		
+	</class>
+</hibernate-mapping>  

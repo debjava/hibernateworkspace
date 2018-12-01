@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE hibernate-mapping PUBLIC 
+ "-//Hibernate/Hibernate Mapping DTD//EN"
+ "http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+
+<hibernate-mapping>
+	<class name="com.ddlab.rnd.orm.BankCustomer" table="BankCustomer">
+	
+		<id name="custId">
+			<generator class="identity" />
+		</id>
+		
+		<set name="accounts" cascade="all">
+			<key column="custId" />
+			<one-to-many class="com.ddlab.rnd.orm.BankAccount" />
+		</set>
+		<property name="name" />
+	</class>
+</hibernate-mapping>

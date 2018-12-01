@@ -1,0 +1,22 @@
+drop table if exists student;
+drop table if exists address1;
+
+CREATE TABLE IF NOT EXISTS address1 (
+  ADDRESS_ID bigint(20) NOT NULL AUTO_INCREMENT,
+  ADDRESS_CITY varchar(255) DEFAULT NULL,
+  ADDRESS_STATE varchar(50) NOT NULL,
+  ADDRESS_STREET varchar(250) NOT NULL,
+  ADDRESS_ZIPCODE varchar(10) NOT NULL,
+  PRIMARY KEY (ADDRESS_ID)
+);
+
+CREATE TABLE IF NOT EXISTS student (
+  STUDENT_ID bigint(20) NOT NULL AUTO_INCREMENT,
+  STUDENT_NAME varchar(100) NOT NULL,
+  ADDRESS_ID bigint(20) DEFAULT NULL,
+  PRIMARY KEY (STUDENT_ID),
+  FOREIGN KEY (ADDRESS_ID) REFERENCES address1 (ADDRESS_ID)
+);
+
+select * from ADDRESS1;
+select * from STUDENT;

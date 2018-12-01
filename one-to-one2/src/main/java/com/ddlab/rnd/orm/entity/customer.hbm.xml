@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE hibernate-mapping PUBLIC  
+          "-//Hibernate/Hibernate Mapping DTD 3.0//EN"  
+          "http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+
+<hibernate-mapping>
+	<class name="com.ddlab.rnd.orm.entity.Customer" table="customer">
+		<id name="customerId">
+			<!-- <generator class="increment"></generator> -->
+			<!-- <generator class="identity" /> -->
+
+			<generator class="foreign">
+				<param name="property">address</param>
+			</generator>
+		</id>
+
+		<property name="firstName"></property>
+		<property name="lastName"></property>
+
+		<many-to-one name="address" class="com.ddlab.rnd.orm.entity.Address"
+			fetch="select">
+			<column name="addressId" not-null="true">
+			</column>
+		</many-to-one>
+
+	</class>
+
+</hibernate-mapping>  
